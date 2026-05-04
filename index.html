@@ -17,6 +17,8 @@
 
 <!-- CANONICAL -->
 <link rel="canonical" href="https://frankstack1.github.io/PIXORA-Tools/" />
+  <!-- Favicon -->
+<link rel="icon" href="https://frankstack1.github.io/PIXORA-Tools/pixora.png" type="image/png" />
 
 <!-- OPEN GRAPH (Facebook, WhatsApp, LinkedIn) -->
 <meta property="og:type" content="website" />
@@ -166,6 +168,7 @@
   border-top: 1px solid rgba(255,255,255,0.06);
   padding: 20px 0;
   overflow: hidden;
+  position: relative;
 }
 
 .strip-track {
@@ -173,6 +176,12 @@
   gap: 16px;
   align-items: center;
   white-space: nowrap;
+  width: max-content;
+  animation: slideStrip 28s linear infinite;
+}
+
+.strip-track:hover {
+  animation-play-state: paused;
 }
 
 .strip-pill {
@@ -187,6 +196,23 @@
   color: rgba(255,255,255,0.6);
   white-space: nowrap;
   flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.strip-pill:hover {
+  border-color: rgba(12,200,200,0.35);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* animation */
+@keyframes slideStrip {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 /* ── Tools preview ── */
@@ -285,10 +311,11 @@
       </div>
     </section>
 
-    <!-- Strip -->
-<div class="preview-strip">
+    <div class="preview-strip">
   <div class="container">
     <div class="strip-track">
+
+      <!-- original -->
       <div class="strip-pill"><i class="fa-solid fa-file-contract"></i> Compress Images</div>
       <div class="strip-pill"><i class="fa-solid fa-arrows-rotate"></i> JPG ↔ PNG</div>
       <div class="strip-pill"><i class="fa-solid fa-up-right-and-down-left-from-center"></i> Resize</div>
@@ -296,7 +323,22 @@
       <div class="strip-pill"><i class="fa-solid fa-globe"></i> WebP Converter</div>
       <div class="strip-pill"><i class="fa-solid fa-folder"></i> Bulk Renamer</div>
       <div class="strip-pill"><i class="fa-regular fa-image"></i> Background Remover</div>
-      <div class="strip-pill" style="color:var(--teal);border-color:rgba(12,200,200,0.2)">More tools coming <i class="fa-solid fa-arrow-right"></i></div>
+      <div class="strip-pill" style="color:var(--teal);border-color:rgba(12,200,200,0.2)">
+        More tools coming <i class="fa-solid fa-arrow-right"></i>
+      </div>
+
+      <!-- duplicate -->
+      <div class="strip-pill"><i class="fa-solid fa-file-contract"></i> Compress Images</div>
+      <div class="strip-pill"><i class="fa-solid fa-arrows-rotate"></i> JPG ↔ PNG</div>
+      <div class="strip-pill"><i class="fa-solid fa-up-right-and-down-left-from-center"></i> Resize</div>
+      <div class="strip-pill"><i class="fa-solid fa-crop-simple"></i> Crop</div>
+      <div class="strip-pill"><i class="fa-solid fa-globe"></i> WebP Converter</div>
+      <div class="strip-pill"><i class="fa-solid fa-folder"></i> Bulk Renamer</div>
+      <div class="strip-pill"><i class="fa-regular fa-image"></i> Background Remover</div>
+      <div class="strip-pill" style="color:var(--teal);border-color:rgba(12,200,200,0.2)">
+        More tools coming <i class="fa-solid fa-arrow-right"></i>
+      </div>
+
     </div>
   </div>
 </div>
