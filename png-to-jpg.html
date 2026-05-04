@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- BASIC META -->
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>PNG to JPG Converter — Free Image Conversion Tool | PIXORA Tools</title>
+
+<meta name="description" content="Convert PNG images to JPG instantly with PIXORA Tools. Free, fast, and 100% browser-based PNG to JPG converter with no uploads, no signup, and full privacy." />
+
+<meta name="keywords" content="png to jpg, convert png to jpg, image converter, png jpg converter online, free image converter, compress png to jpg, image format tool, PIXORA tools, convert images online, jpg converter" />
+
+<meta name="author" content="PIXORA Tools" />
+
+<meta name="robots" content="index, follow" />
+
+<!-- CANONICAL -->
+<link rel="canonical" href="https://yourdomain.com/png-to-jpg.html" />
+
+<!-- OPEN GRAPH -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="PNG to JPG Converter — PIXORA Tools" />
+<meta property="og:description" content="Convert PNG to JPG instantly in your browser. Free, fast, and private image conversion tool with no uploads or signup required." />
+<meta property="og:url" content="https://yourdomain.com/png-to-jpg.html" />
+<meta property="og:site_name" content="PIXORA Tools" />
+<meta property="og:image" content="https://yourdomain.com/assets/og/png-to-jpg.png" />
+
+<!-- TWITTER CARD -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="PNG to JPG Converter — PIXORA Tools" />
+<meta name="twitter:description" content="Free PNG to JPG converter. Convert images instantly in your browser with full privacy and no uploads." />
+<meta name="twitter:image" content="https://yourdomain.com/assets/og/png-to-jpg.png" />
+
+<!-- PERFORMANCE / BRAND -->
+<meta name="theme-color" content="#0CC8C8" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .fa-solid,
+    .fa-regular,
+    .fa-brands {
+      font-size: 1rem;
+      line-height: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      vertical-align: middle;
+    }
+
+    .upload-icon i,
+    .preview-placeholder .icon i,
+    .btn i,
+    .badge i,
+    a i {
+      font-size: inherit;
+      color: inherit;
+    }
+
+    .upload-icon i {
+      font-size: 2rem;
+    }
+
+    .preview-placeholder .icon i {
+      font-size: 2rem;
+    }
+
+    .btn i {
+      margin-right: 6px;
+    }
+
+    a i,
+    button i {
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+  <div id="site-header"></div>
+  <main>
+    <div class="tool-page-header">
+      <div class="container">
+        <a href="tools.html" style="display:inline-flex;align-items:center;gap:6px;color:rgba(255,255,255,0.4);font-size:0.85rem;margin-bottom:20px;transition:color 0.2s" onmouseover="this.style.color='rgba(255,255,255,0.7)'" onmouseout="this.style.color='rgba(255,255,255,0.4)'"><i class="fa-solid fa-arrow-left"></i> Back to Tools</a>
+        <div class="badge badge-gold" style="margin-bottom:14px"><i class="fa-regular fa-image"></i> Converter</div>
+        <h1>PNG <i class="fa-solid fa-arrow-right"></i> JPG</h1>
+        <p>Convert PNG images to JPG. Choose a background color to fill transparent areas.</p>
+      </div>
+    </div>
+
+    <div class="tool-page-body">
+      <div class="container">
+        <div class="tool-workspace">
+          <div class="upload-zone" id="upload-zone" style="margin-bottom:32px">
+            <input type="file" accept="image/png" />
+            <div class="upload-icon"><i class="fa-solid fa-cloud-arrow-up"></i></div>
+            <h3>Drop your PNG here</h3>
+            <p>or click to browse — PNG files only</p>
+          </div>
+
+          <!-- Background Color -->
+          <div class="form-group" style="margin-bottom:28px">
+            <label style="font-weight:600">Background Fill Color (for transparent areas)</label>
+            <div style="display:flex;align-items:center;gap:16px;margin-top:8px;flex-wrap:wrap">
+              <div class="color-swatches">
+                <div class="swatch active" data-color="#ffffff" style="background:#ffffff;border:1px solid #ddd" title="White"></div>
+                <div class="swatch" data-color="#000000" style="background:#000000" title="Black"></div>
+                <div class="swatch" data-color="#f0f0f0" style="background:#f0f0f0;border:1px solid #ddd" title="Light Gray"></div>
+                <div class="swatch" data-color="#1E3358" style="background:#1E3358" title="Navy"></div>
+                <div class="swatch" data-color="#0CC8C8" style="background:#0CC8C8" title="Teal"></div>
+              </div>
+              <div style="display:flex;align-items:center;gap:8px">
+                <label style="font-size:0.85rem;color:var(--text-muted)">Custom:</label>
+                <input type="color" id="custom-color" value="#ffffff" style="width:40px;height:36px;border:1px solid var(--border);border-radius:8px;padding:2px;cursor:pointer;background:none" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Quality -->
+          <div style="margin-bottom:28px">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">
+              <label style="font-weight:600">Output Quality</label>
+              <strong id="qual-val">92</strong><span style="color:var(--text-muted);font-size:0.85rem">%</span>
+            </div>
+            <input type="range" id="jpg-quality" min="10" max="100" value="92" data-unit="%" />
+          </div>
+
+          <!-- Preview -->
+          <div style="margin-bottom:28px">
+            <label style="font-weight:600;display:block;margin-bottom:12px">Preview</label>
+            <div class="preview-box" style="min-height:200px">
+              <img id="img-preview" alt="Preview" style="display:none;max-width:100%;max-height:260px;object-fit:contain" />
+              <div class="preview-placeholder" id="ph"><div class="icon"><i class="fa-regular fa-image"></i></div>Upload a PNG to see preview</div>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:12px;flex-wrap:wrap">
+            <button class="btn btn-teal" onclick="convertToJpg()"><i class="fa-solid fa-arrows-rotate"></i> Convert to JPG</button>
+            <a class="btn btn-primary" id="dl-btn" style="display:none" download="converted.jpg"><i class="fa-solid fa-download"></i> Download JPG</a>
+            <button class="btn btn-ghost" onclick="resetTool()"><i class="fa-solid fa-arrow-rotate-left"></i> Reset</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <div id="site-footer"></div>
+  <script src="lock.js"></script>
+  <script src="shared-layout.js"></script>
+  <script src="main.js"></script>
+  <script>
+    const zone = document.getElementById('upload-zone');
+    const fileInput = zone.querySelector('input[type="file"]');
+    let loadedSrc = null;
+    let bgColor = '#ffffff';
+
+    document.querySelectorAll('.swatch').forEach(sw => {
+      sw.addEventListener('click', () => {
+        document.querySelectorAll('.swatch').forEach(s => s.classList.remove('active'));
+        sw.classList.add('active');
+        bgColor = sw.dataset.color;
+        document.getElementById('custom-color').value = bgColor;
+      });
+    });
+
+    document.getElementById('custom-color').addEventListener('input', e => {
+      bgColor = e.target.value;
+      document.querySelectorAll('.swatch').forEach(s => s.classList.remove('active'));
+    });
+
+    const qSlider = document.getElementById('jpg-quality');
+    qSlider.addEventListener('input', () => { document.getElementById('qual-val').textContent = qSlider.value; });
+
+    function loadFile(file) {
+      const reader = new FileReader();
+      reader.onload = e => {
+        loadedSrc = e.target.result;
+        const img = document.getElementById('img-preview');
+        img.src = loadedSrc; img.style.display = 'block';
+        document.getElementById('ph').style.display = 'none';
+        zone.querySelector('h3').textContent = file.name;
+        zone.querySelector('p').textContent = (file.size/1024).toFixed(1) + ' KB · Ready';
+        zone.style.borderColor = 'var(--teal)';
+      };
+      reader.readAsDataURL(file);
+    }
+
+    fileInput.addEventListener('change', () => { if (fileInput.files[0]) loadFile(fileInput.files[0]); });
+    zone.addEventListener('dragover', e => { e.preventDefault(); zone.classList.add('drag-over'); });
+    zone.addEventListener('dragleave', () => zone.classList.remove('drag-over'));
+    zone.addEventListener('drop', e => { e.preventDefault(); zone.classList.remove('drag-over'); if (e.dataTransfer.files[0]) loadFile(e.dataTransfer.files[0]); });
+
+    function convertToJpg() {
+      if (!loadedSrc) { alert('Please upload a PNG image first.'); return; }
+      const quality = parseInt(qSlider.value) / 100;
+      const img = new Image();
+      img.onload = () => {
+        const canvas = document.createElement('canvas');
+        canvas.width = img.naturalWidth; canvas.height = img.naturalHeight;
+        const ctx = canvas.getContext('2d');
+        ctx.fillStyle = bgColor;
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(img, 0, 0);
+        const dataUrl = canvas.toDataURL('image/jpeg', quality);
+        const dl = document.getElementById('dl-btn');
+        dl.href = dataUrl; dl.style.display = 'inline-flex';
+      };
+      img.src = loadedSrc;
+    }
+
+    function resetTool() {
+      loadedSrc = null;
+      document.getElementById('img-preview').style.display = 'none';
+      document.getElementById('ph').style.display = '';
+      document.getElementById('dl-btn').style.display = 'none';
+      zone.querySelector('h3').textContent = 'Drop your PNG here';
+      zone.querySelector('p').textContent = 'or click to browse — PNG files only';
+      zone.style.borderColor = '';
+      fileInput.value = '';
+    }
+  </script>
+</body>
+</html>

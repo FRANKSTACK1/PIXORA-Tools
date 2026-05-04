@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- BASIC META -->
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>PIXORA Tools — Free Online Image Editor & All-in-One Image Toolkit</title>
+
+<meta name="description" content="PIXORA Tools is a free, browser-based image toolkit for creators. Compress, crop, resize, convert, and edit images instantly with no uploads, no signup, and full privacy." />
+
+<meta name="keywords" content="free image tools, online image editor, image compressor, crop image online, resize image, jpg to png converter, png to jpg, webp converter, bulk image tools, PIXORA tools, free web tools for creators" />
+
+<meta name="author" content="PIXORA Tools" />
+
+<meta name="robots" content="index, follow" />
+
+<!-- CANONICAL -->
+<link rel="canonical" href="https://yourdomain.com/" />
+
+<!-- OPEN GRAPH (Facebook, WhatsApp, LinkedIn) -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="PIXORA Tools — Free All-in-One Image Toolkit" />
+<meta property="og:description" content="Compress, crop, resize, and convert images instantly in your browser. Free, fast, and fully private image tools for creators." />
+<meta property="og:url" content="https://yourdomain.com/" />
+<meta property="og:site_name" content="PIXORA Tools" />
+<meta property="og:image" content="https://yourdomain.com/assets/og/home.png" />
+
+<!-- TWITTER CARD -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="PIXORA Tools — Free Image Toolkit" />
+<meta name="twitter:description" content="All-in-one free image tools for creators. Compress, crop, resize, and convert images instantly in your browser." />
+<meta name="twitter:image" content="https://yourdomain.com/assets/og/home.png" />
+
+<!-- BRAND & PERFORMANCE -->
+<meta name="theme-color" content="#0CC8C8" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+  <style>.upload-icon i,
+.tool-icon i,
+.feature-icon i,
+.preview-placeholder .icon i,
+.btn i,
+.strip-pill i,
+.hero-badge i {
+  font-size: inherit;
+  color: inherit;
+}
+
+.arrow i {
+  transition: inherit;
+}
+
+/* ── Hero ── */
+.hero {
+  background: var(--navy);
+  padding: 100px 0 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -40%; right: -10%;
+  width: 600px; height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(12,200,200,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -20%; left: -5%;
+  width: 400px; height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(212,168,83,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 740px;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(12,200,200,0.1);
+  border: 1px solid rgba(12,200,200,0.2);
+  border-radius: 100px;
+  padding: 6px 16px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--teal);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 28px;
+}
+
+.hero-badge .dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--teal);
+  animation: pulse-ring 1.5s infinite;
+}
+
+.hero h1 {
+  color: #fff;
+  margin-bottom: 20px;
+  line-height: 1.08;
+}
+
+.hero h1 em {
+  font-style: normal;
+  color: var(--teal);
+}
+
+.hero-sub {
+  color: rgba(255,255,255,0.6);
+  font-size: 1.15rem;
+  max-width: 500px;
+  margin-bottom: 36px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.hero-stats {
+  margin-top: 60px;
+  padding-top: 40px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  display: flex;
+  gap: 48px;
+  flex-wrap: wrap;
+}
+
+.hero-stat .value {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.hero-stat .label {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.45);
+}
+
+/* ── Preview strip ── */
+.preview-strip {
+  background: var(--navy-mid);
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding: 20px 0;
+  overflow: hidden;
+}
+
+.strip-track {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.strip-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 100px;
+  padding: 8px 16px;
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.6);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* ── Tools preview ── */
+.tools-preview { padding: 80px 0; }
+
+.section-head {
+  margin-bottom: 48px;
+}
+
+.section-head h2 { margin-bottom: 10px; }
+
+.section-head p {
+  font-size: 1rem;
+  max-width: 480px;
+}
+
+.section-head-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+/* ── Features ── */
+.features { background: var(--bg-card); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+
+.feature-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  transition: all var(--transition);
+}
+
+.feature-card:hover {
+  background: var(--bg-card);
+  border-color: rgba(12,200,200,0.25);
+  box-shadow: var(--shadow-md);
+}
+
+/* ── CTA Banner ── */
+.cta-banner {
+  background: var(--navy);
+  border-radius: var(--radius-xl);
+  padding: 60px 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-banner::before {
+  content: '';
+  position: absolute;
+  top: -30%; right: -5%;
+  width: 400px; height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(12,200,200,0.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.cta-banner h2 { color: #fff; }
+.cta-banner p { color: rgba(255,255,255,0.55); max-width: 400px; }
+
+.cta-text { position: relative; z-index: 1; }
+.cta-actions { position: relative; z-index: 1; display: flex; gap: 12px; flex-wrap: wrap; }
+  </style>
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-inner">
+          <div class="hero-badge animate-fade-up">
+            <span class="dot"></span>
+            100% Browser-Based · No Uploads
+          </div>
+          <h1 class="animate-fade-up-2">All-in-one<br /><em>Image Toolkit</em><br />for Creators</h1>
+          <p class="hero-sub animate-fade-up-3">Compress, convert, resize images instantly in your browser — no server, no account, no limits.</p>
+          <div class="hero-actions animate-fade-up-4">
+            <a href="compressor.html" class="btn btn-teal btn-lg">⚡ Start Compressing</a>
+            <a href="tools.html" class="btn btn-outline btn-lg" style="color:#fff;border-color:rgba(255,255,255,0.2);">Open Tools →</a>
+          </div>
+          <div class="hero-stats">
+            <div class="hero-stat"><div class="value">8+</div><div class="label">Image Tools</div></div>
+            <div class="hero-stat"><div class="value">0ms</div><div class="label">Server Latency</div></div>
+            <div class="hero-stat"><div class="value">100%</div><div class="label">Private & Secure</div></div>
+            <div class="hero-stat"><div class="value">Free</div><div class="label">Always & Forever</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Strip -->
+<div class="preview-strip">
+  <div class="container">
+    <div class="strip-track">
+      <div class="strip-pill"><i class="fa-solid fa-file-contract"></i> Compress Images</div>
+      <div class="strip-pill"><i class="fa-solid fa-arrows-rotate"></i> JPG ↔ PNG</div>
+      <div class="strip-pill"><i class="fa-solid fa-up-right-and-down-left-from-center"></i> Resize</div>
+      <div class="strip-pill"><i class="fa-solid fa-crop-simple"></i> Crop</div>
+      <div class="strip-pill"><i class="fa-solid fa-globe"></i> WebP Converter</div>
+      <div class="strip-pill"><i class="fa-solid fa-folder"></i> Bulk Renamer</div>
+      <div class="strip-pill"><i class="fa-regular fa-image"></i> Background Remover</div>
+      <div class="strip-pill" style="color:var(--teal);border-color:rgba(12,200,200,0.2)">More tools coming <i class="fa-solid fa-arrow-right"></i></div>
+    </div>
+  </div>
+</div>
+
+<!-- Tools Preview Grid -->
+<section class="tools-preview">
+  <div class="container">
+    <div class="section-head-row">
+      <div class="section-head">
+        <div class="section-label"><span>Tools</span></div>
+        <h2>Everything you need<br />for images</h2>
+        <p>Professional image tools that run entirely in your browser. Fast, private, and always free.</p>
+      </div>
+      <a href="tools.html" class="btn btn-outline">View All Tools <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+
+    <div class="tools-grid">
+      <a href="compressor.html" class="tool-card reveal">
+        <div class="tool-icon" style="background:rgba(11,22,40,0.06)"><i class="fa-solid fa-file-contract"></i></div>
+        <h3>Image Compressor</h3>
+        <p>Reduce file size without visible quality loss. Perfect for web and email.</p>
+        <div class="arrow">Use tool <span><i class="fa-solid fa-arrow-right"></i></span></div>
+      </a>
+      <a href="jpg-to-png.html" class="tool-card reveal">
+        <div class="tool-icon" style="background:rgba(12,200,200,0.08)"><i class="fa-solid fa-arrows-rotate"></i></div>
+        <h3>JPG → PNG</h3>
+        <p>Convert JPG images to lossless PNG format instantly.</p>
+        <div class="arrow">Use tool <span><i class="fa-solid fa-arrow-right"></i></span></div>
+      </a>
+      <a href="png-to-jpg.html" class="tool-card reveal">
+        <div class="tool-icon" style="background:rgba(212,168,83,0.1)"><i class="fa-regular fa-image"></i></div>
+        <h3>PNG → JPG</h3>
+        <p>Convert PNG images to JPG with custom background fill color.</p>
+        <div class="arrow">Use tool <span><i class="fa-solid fa-arrow-right"></i></span></div>
+      </a>
+      <a href="resize.html" class="tool-card reveal">
+        <div class="tool-icon" style="background:rgba(11,22,40,0.06)"><i class="fa-solid fa-up-right-and-down-left-from-center"></i></div>
+        <h3>Resize Image</h3>
+        <p>Set exact dimensions with aspect ratio lock and live preview.</p>
+        <div class="arrow">Use tool <span><i class="fa-solid fa-arrow-right"></i></span></div>
+      </a>
+      <a href="crop.html" class="tool-card reveal">
+        <div class="tool-icon" style="background:rgba(12,200,200,0.08)"><i class="fa-solid fa-crop-simple"></i></div>
+        <h3>Crop Image</h3>
+        <p>Drag-to-adjust crop with presets for social media formats.</p>
+        <div class="arrow">Use tool <span><i class="fa-solid fa-arrow-right"></i></span></div>
+      </a>
+      <a href="webp.html" class="tool-card reveal">
+        <div class="tool-icon" style="background:rgba(212,168,83,0.1)"><i class="fa-solid fa-globe"></i></div>
+        <h3>WebP Converter</h3>
+        <p>Convert images to modern WebP format for faster web performance.</p>
+        <div class="arrow">Use tool <span><i class="fa-solid fa-arrow-right"></i></span></div>
+      </a>
+      <a href="background-remover.html" class="tool-card reveal">
+        <div class="tool-icon" style="background:rgba(11,22,40,0.06)"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+        <h3>Background Remover</h3>
+        <p>Manual brush tool to erase backgrounds. Export transparent PNG.</p>
+        <div class="arrow">Use tool <span><i class="fa-solid fa-arrow-right"></i></span></div>
+      </a>
+      <a href="bulk-renamer.html" class="tool-card reveal">
+        <div class="tool-icon" style="background:rgba(12,200,200,0.08)"><i class="fa-solid fa-folder"></i></div>
+        <h3>Bulk Renamer</h3>
+        <p>Rename hundreds of images at once with custom patterns and numbering.</p>
+        <div class="arrow">Use tool <span><i class="fa-solid fa-arrow-right"></i></span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Features -->
+<section class="section features">
+  <div class="container">
+    <div class="section-head" style="text-align:center;max-width:500px;margin:0 auto 48px">
+      <div class="section-label" style="justify-content:center"><span>Why PIXORA</span></div>
+      <h2>Built for speed,<br />privacy & trust</h2>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card reveal">
+        <div class="feature-icon" style="background:rgba(12,200,200,0.1)"><i class="fa-solid fa-lock"></i></div>
+        <h3>100% Private</h3>
+        <p>Your images never leave your device. All processing happens locally in your browser — no server, no cloud, no risk.</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon" style="background:rgba(11,22,40,0.06)"><i class="fa-solid fa-bolt"></i></div>
+        <h3>Instant Processing</h3>
+        <p>No upload wait times. Images are processed in milliseconds directly on your hardware using modern browser APIs.</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon" style="background:rgba(212,168,83,0.1)"><i class="fa-solid fa-gift"></i></div>
+        <h3>Completely Free</h3>
+        <p>No account required, no limits, no watermarks. PIXORA Tools is free for everyone, forever.</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon" style="background:rgba(12,200,200,0.1)"><i class="fa-solid fa-mobile-screen"></i></div>
+        <h3>Works Everywhere</h3>
+        <p>Fully responsive design. Use PIXORA Tools on desktop, tablet, or mobile — same great experience everywhere.</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon" style="background:rgba(11,22,40,0.06)"><i class="fa-solid fa-toolbox"></i></div>
+        <h3>All-in-One Suite</h3>
+        <p>8+ image tools in one place. No need to jump between different apps and sites for different tasks.</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon" style="background:rgba(212,168,83,0.1)"><i class="fa-solid fa-globe"></i></div>
+        <h3>Works Offline</h3>
+        <p>Once loaded, PIXORA Tools works without an internet connection. Perfect for creative work on the go.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Banner -->
+<section class="section">
+  <div class="container">
+    <div class="cta-banner">
+      <div class="cta-text">
+        <h2>Ready to transform<br />your images?</h2>
+        <p>Join thousands of creators using PIXORA Tools every day.</p>
+      </div>
+      <div class="cta-actions">
+        <a href="compressor.html" class="btn btn-teal btn-lg"><i class="fa-solid fa-bolt"></i> Start Now — Free</a>
+        <a href="tools.html" class="btn btn-outline btn-lg" style="color:#fff;border-color:rgba(255,255,255,0.2)">Browse Tools</a>
+      </div>
+    </div>
+  </div>
+</section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="lock.js"></script>
+  <script src="shared-layout.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>

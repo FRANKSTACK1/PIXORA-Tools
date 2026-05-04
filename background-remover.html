@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- BASIC META -->
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>Background Remover — Remove Image Background Instantly | PIXORA Tools</title>
+
+<meta name="description" content="Remove image backgrounds instantly and for free with PIXORA Tools. 100% browser-based, no uploads, no signup, and completely private background remover tool." />
+
+<meta name="keywords" content="background remover, remove background from image, free background remover, online image tool, PNG background remover, photo editor, PIXORA tools" />
+
+<meta name="author" content="PIXORA Tools" />
+<meta name="robots" content="index, follow" />
+
+<!-- CANONICAL URL (IMPORTANT FOR SEO) -->
+<link rel="canonical" href="https://yourdomain.com/background-remover.html" />
+
+<!-- OPEN GRAPH (for Facebook, WhatsApp, LinkedIn) -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Background Remover — PIXORA Tools" />
+<meta property="og:description" content="Remove image backgrounds instantly in your browser. No uploads, no tracking, completely free." />
+<meta property="og:url" content="https://yourdomain.com/background-remover.html" />
+<meta property="og:site_name" content="PIXORA Tools" />
+<meta property="og:image" content="https://yourdomain.com/assets/og/background-remover.png" />
+
+<!-- TWITTER CARD -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Background Remover — PIXORA Tools" />
+<meta name="twitter:description" content="Remove image backgrounds instantly, directly in your browser. Free and private tool." />
+<meta name="twitter:image" content="https://yourdomain.com/assets/og/background-remover.png" />
+
+<!-- THEME COLOR (nice UX boost on mobile browsers) -->
+<meta name="theme-color" content="#0CC8C8" />
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .brush-toolbar {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      padding: 14px 20px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      margin-bottom: 16px;
+    }
+
+    .brush-mode {
+      display: flex;
+      gap: 4px;
+    }
+
+    .mode-btn {
+      padding: 7px 16px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      background: #fff;
+      font-size: 0.85rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .mode-btn.active {
+      background: var(--navy);
+      color: #fff;
+      border-color: var(--navy);
+    }
+
+    .brush-size-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex: 1;
+      min-width: 160px;
+    }
+
+    canvas {
+      display: block;
+      border-radius: var(--radius-md);
+      cursor: crosshair;
+      background: repeating-conic-gradient(#E4E8EF 0% 25%, #fff 0% 50%) 0 0 / 14px 14px;
+      max-width: 100%;
+    }
+
+    .beta-notice {
+      background: rgba(212,168,83,0.08);
+      border: 1px solid rgba(212,168,83,0.3);
+      border-radius: var(--radius-md);
+      padding: 16px 20px;
+      margin-bottom: 24px;
+      display: flex;
+      gap: 12px;
+    }
+
+    .beta-notice p { font-size: 0.875rem; color: var(--text-secondary); margin: 0; }
+
+    /* Font Awesome Custom Styling */
+    .tool-icon,
+    .upload-icon i,
+    .info-box .icon i,
+    .mode-btn i,
+    .btn i,
+    .beta-notice i {
+      font-size: 1rem;
+      vertical-align: middle;
+    }
+
+    .upload-icon i {
+      font-size: 2rem;
+    }
+
+    .mode-btn i,
+    .btn i {
+      margin-right: 6px;
+    }
+
+    .beta-notice i {
+      color: #d4a853;
+    }
+
+    .info-box .icon i {
+      color: var(--teal);
+    }
+  </style>
+</head>
+<body>
+  <div id="site-header"></div>
+  <main>
+    <div class="tool-page-header">
+      <div class="container">
+        <a href="tools.html" style="display:inline-flex;align-items:center;gap:6px;color:rgba(255,255,255,0.4);font-size:0.85rem;margin-bottom:20px;transition:color 0.2s" onmouseover="this.style.color='rgba(255,255,255,0.7)'" onmouseout="this.style.color='rgba(255,255,255,0.4)'"><i class="fa-solid fa-arrow-left"></i> Back to Tools</a>
+        <div style="display:flex;gap:8px;align-items:center;margin-bottom:14px">
+          <div class="badge badge-navy"><i class="fa-solid fa-wand-magic-sparkles tool-icon"></i> Background Remover</div>
+          <div class="badge badge-beta">Beta</div>
+        </div>
+        <h1>Background Remover</h1>
+        <p>Use the eraser brush to manually paint away backgrounds. Export as transparent PNG.</p>
+      </div>
+    </div>
+
+    <div class="tool-page-body">
+      <div class="container">
+        <!-- Beta Notice -->
+        <div class="beta-notice">
+          <span style="flex-shrink:0"><i class="fa-solid fa-triangle-exclamation"></i></span>
+          <p><strong>Basic Tool (Beta):</strong> This is a manual brush-based background remover. For best results, use a smaller brush size near edges and zoom in on detailed areas. Auto AI-powered removal is coming soon.</p>
+        </div>
+
+        <div class="tool-workspace">
+          <div class="upload-zone" id="upload-zone" style="margin-bottom:24px">
+            <input type="file" accept="image/*" />
+            <div class="upload-icon"><i class="fa-solid fa-cloud-arrow-up"></i></div>
+            <h3>Drop your image here</h3>
+            <p>JPG, PNG, WebP supported</p>
+          </div>
+
+          <!-- Toolbar -->
+          <div class="brush-toolbar">
+            <div class="brush-mode">
+              <button class="mode-btn active" id="eraser-btn" onclick="setMode('eraser',this)"><i class="fa-solid fa-wand-magic-sparkles"></i> Eraser</button>
+              <button class="mode-btn" id="restore-btn" onclick="setMode('restore',this)"><i class="fa-solid fa-paintbrush"></i> Restore</button>
+            </div>
+            <div class="brush-size-row">
+              <span style="font-size:0.8rem;font-weight:500;white-space:nowrap">Brush: <span id="brush-size-val">30</span>px</span>
+              <input type="range" id="brush-size" min="5" max="100" value="30" style="flex:1" />
+            </div>
+            <button class="mode-btn" onclick="undoLast()"><i class="fa-solid fa-rotate-left"></i> Undo</button>
+            <button class="mode-btn" onclick="clearCanvas()"><i class="fa-solid fa-trash"></i> Clear</button>
+          </div>
+
+          <!-- Canvas -->
+          <div style="text-align:center;margin-bottom:24px;overflow:auto">
+            <div class="preview-placeholder" id="ph" style="padding:60px 0;background:repeating-conic-gradient(#E4E8EF 0% 25%, #fff 0% 50%) 0 0 / 14px 14px;border-radius:var(--radius-md);border:1px solid var(--border)">
+              <div style="font-size:2rem;margin-bottom:8px"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+              Upload an image to start
+            </div>
+            <canvas id="main-canvas" style="display:none"></canvas>
+          </div>
+
+          <div class="info-box" style="margin-bottom:24px">
+            <span class="icon"><i class="fa-solid fa-lightbulb"></i></span>
+            <p>Paint over areas to erase them (shows transparent checkerboard). Use <strong>Restore</strong> mode to bring back accidentally removed parts.</p>
+          </div>
+
+          <div style="display:flex;gap:12px;flex-wrap:wrap">
+            <button class="btn btn-teal" onclick="exportPng()"><i class="fa-solid fa-file-export"></i> Export Transparent PNG</button>
+            <a class="btn btn-primary" id="dl-btn" style="display:none" download="no-bg.png"><i class="fa-solid fa-download"></i> Download PNG</a>
+            <button class="btn btn-ghost" onclick="resetTool()"><i class="fa-solid fa-rotate-left"></i> Reset</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <div id="site-footer"></div>
+  <script src="lock.js"></script>
+  <script src="shared-layout.js"></script>
+  <script src="main.js"></script>
+  <script>
+    const zone = document.getElementById('upload-zone');
+    const fileInput = zone.querySelector('input[type="file"]');
+    const canvas = document.getElementById('main-canvas');
+    const ctx = canvas.getContext('2d');
+    let mode = 'eraser';
+    let isPainting = false;
+    let history = [];
+    let origImg = null;
+
+    document.getElementById('brush-size').addEventListener('input', e => {
+      document.getElementById('brush-size-val').textContent = e.target.value;
+    });
+
+    function setMode(m, btn) {
+      mode = m;
+      document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    }
+
+    function loadFile(file) {
+      const reader = new FileReader();
+      reader.onload = e => {
+        const img = new Image();
+        img.onload = () => {
+          origImg = img;
+          const maxW = Math.min(img.naturalWidth, 800);
+          const scale = maxW / img.naturalWidth;
+          canvas.width = img.naturalWidth * scale;
+          canvas.height = img.naturalHeight * scale;
+          ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+          document.getElementById('ph').style.display = 'none';
+          canvas.style.display = 'block';
+          saveHistory();
+        };
+        img.src = e.target.result;
+        zone.querySelector('h3').textContent = file.name;
+        zone.style.borderColor = 'var(--teal)';
+      };
+      reader.readAsDataURL(file);
+    }
+
+    fileInput.addEventListener('change', () => { if (fileInput.files[0]) loadFile(fileInput.files[0]); });
+    zone.addEventListener('dragover', e => { e.preventDefault(); zone.classList.add('drag-over'); });
+    zone.addEventListener('dragleave', () => zone.classList.remove('drag-over'));
+    zone.addEventListener('drop', e => { e.preventDefault(); zone.classList.remove('drag-over'); if (e.dataTransfer.files[0]) loadFile(e.dataTransfer.files[0]); });
+
+    function getPos(e) {
+      const rect = canvas.getBoundingClientRect();
+      const scaleX = canvas.width / rect.width;
+      const scaleY = canvas.height / rect.height;
+      const src = e.touches ? e.touches[0] : e;
+      return { x: (src.clientX - rect.left) * scaleX, y: (src.clientY - rect.top) * scaleY };
+    }
+
+    function paint(e) {
+      if (!isPainting) return;
+      const { x, y } = getPos(e);
+      const size = parseInt(document.getElementById('brush-size').value);
+      if (mode === 'eraser') {
+        ctx.globalCompositeOperation = 'destination-out';
+        ctx.fillStyle = 'rgba(0,0,0,1)';
+      } else {
+        ctx.globalCompositeOperation = 'source-over';
+        if (origImg) {
+          const tmpCanvas = document.createElement('canvas');
+          tmpCanvas.width = canvas.width; tmpCanvas.height = canvas.height;
+          tmpCanvas.getContext('2d').drawImage(origImg, 0, 0, canvas.width, canvas.height);
+          ctx.drawImage(tmpCanvas, x - size/2, y - size/2, size, size, x - size/2, y - size/2, size, size);
+          return;
+        }
+      }
+      ctx.beginPath();
+      ctx.arc(x, y, size/2, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.globalCompositeOperation = 'source-over';
+    }
+
+    canvas.addEventListener('mousedown', e => { isPainting = true; saveHistory(); paint(e); });
+    canvas.addEventListener('mousemove', paint);
+    canvas.addEventListener('mouseup', () => isPainting = false);
+    canvas.addEventListener('mouseleave', () => isPainting = false);
+    canvas.addEventListener('touchstart', e => { e.preventDefault(); isPainting = true; saveHistory(); paint(e); });
+    canvas.addEventListener('touchmove', e => { e.preventDefault(); paint(e); });
+    canvas.addEventListener('touchend', () => isPainting = false);
+
+    function saveHistory() {
+      history.push(ctx.getImageData(0, 0, canvas.width, canvas.height));
+      if (history.length > 20) history.shift();
+    }
+
+    function undoLast() {
+      if (history.length < 2) return;
+      history.pop();
+      ctx.putImageData(history[history.length - 1], 0, 0);
+    }
+
+    function clearCanvas() {
+      if (origImg) { ctx.clearRect(0, 0, canvas.width, canvas.height); ctx.drawImage(origImg, 0, 0, canvas.width, canvas.height); saveHistory(); }
+    }
+
+    function exportPng() {
+      const dl = document.getElementById('dl-btn');
+      dl.href = canvas.toDataURL('image/png');
+      dl.style.display = 'inline-flex';
+    }
+
+    function resetTool() {
+      origImg = null; history = [];
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      canvas.style.display = 'none';
+      document.getElementById('ph').style.display = '';
+      document.getElementById('dl-btn').style.display = 'none';
+      zone.querySelector('h3').textContent = 'Drop your image here';
+      zone.style.borderColor = ''; fileInput.value = '';
+    }
+  </script>
+</body>
+</html>

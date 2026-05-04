@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>WebP Converter Online Free — Convert JPG, PNG to WebP Instantly | PIXORA Tools</title>
+
+<meta name="description" content="Convert images to WebP online for free with PIXORA Tools. Fast, secure, and 100% browser-based WebP converter for JPG, PNG, and other image formats. No upload required." />
+
+<meta name="keywords" content="webp converter, convert to webp, jpg to webp, png to webp, image to webp online, free webp converter, optimize images webp, PIXORA tools" />
+
+<meta name="robots" content="index, follow" />
+<meta name="author" content="PIXORA Tools" />
+
+<link rel="canonical" href="https://yourdomain.com/webp.html" />
+
+<!-- Open Graph (Social Sharing) -->
+<meta property="og:title" content="WebP Converter Online Free — PIXORA Tools" />
+<meta property="og:description" content="Convert JPG and PNG images to WebP instantly in your browser. No uploads, no compression loss, 100% free and private." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://yourdomain.com/webp.html" />
+<meta property="og:image" content="https://yourdomain.com/assets/webp-preview.png" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="WebP Converter Online Free — PIXORA Tools" />
+<meta name="twitter:description" content="Fast, free WebP converter. Convert JPG & PNG to WebP instantly in your browser." />
+<meta name="twitter:image" content="https://yourdomain.com/assets/webp-preview.png" />
+
+
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    .upload-icon i {
+  font-size: 2rem;
+}
+
+.preview-placeholder .icon i {
+  font-size: 1.8rem;
+}
+
+.info-box .icon i {
+  font-size: 1.2rem;
+}
+
+.btn i {
+  margin-right: 6px;
+}
+
+.badge i {
+  margin-right: 6px;
+}
+  </style>
+</head>
+<body>
+  <div id="site-header"></div>
+  <main>
+    <div class="tool-page-header">
+      <div class="container">
+        <a href="tools.html" style="display:inline-flex;align-items:center;gap:6px;color:rgba(255,255,255,0.4);font-size:0.85rem;margin-bottom:20px;transition:color 0.2s" onmouseover="this.style.color='rgba(255,255,255,0.7)'" onmouseout="this.style.color='rgba(255,255,255,0.4)'">← Back to Tools</a>
+        <div class="badge badge-gold" style="margin-bottom:14px"><i class="fas fa-globe"></i> WebP</div>
+        <h1>WebP Converter</h1>
+        <p>Convert any image to Google's modern WebP format for significantly smaller file sizes.</p>
+      </div>
+    </div>
+    <div class="tool-page-body">
+      <div class="container">
+        <div class="tool-workspace">
+          <div class="upload-zone" id="upload-zone" style="margin-bottom:32px">
+            <input type="file" accept="image/*" />
+            <div class="upload-icon"><i class="fa-solid fa-upload"></i></div>
+            <h3>Drop your image here</h3>
+            <p>JPG, PNG, GIF, BMP supported</p>
+          </div>
+
+          <div style="margin-bottom:28px">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">
+          <label style="font-weight:600">WebP Quality</label>
+          <span style="font-family:var(--font-display);font-weight:800;font-size:1.5rem;color:var(--navy)"><span id="webp-quality-val">80</span>%</span>
+        </div>
+        <input type="range" id="webp-quality" min="10" max="100" value="80" data-unit="%" />
+        <div style="display:flex;justify-content:space-between;margin-top:6px">
+          <span style="font-size:0.75rem;color:var(--text-muted)">Smaller file</span>
+          <span style="font-size:0.75rem;color:var(--text-muted)">Better quality</span>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div style="margin-bottom:28px">
+        <label style="font-weight:600;display:block;margin-bottom:12px">Preview</label>
+        <div class="preview-box" style="min-height:220px">
+          <img id="img-preview" alt="Preview" style="display:none;max-width:100%;max-height:260px;object-fit:contain" />
+          <div class="preview-placeholder" id="ph"><div class="icon"><i class="fas fa-globe"></i></div>Upload image to preview</div>
+        </div>
+      </div>
+
+      <div class="info-box" style="margin-bottom:24px">
+        <span class="icon"><i class="fas fa-lightbulb"></i></span>
+        <p>WebP images are typically <strong>25–35% smaller</strong> than JPEG at equivalent quality, making them ideal for web performance. All modern browsers support WebP.</p>
+      </div>
+
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <button class="btn btn-teal" onclick="convertToWebp()"><i class="fas fa-globe"></i> Convert to WebP</button>
+        <a class="btn btn-primary" id="dl-btn" style="display:none" download="converted.webp"><i class="fas fa-download"></i> Download WebP</a>
+        <button class="btn btn-ghost" onclick="resetTool()"><i class="fas fa-rotate-left"></i> Reset</button>
+      </div>
+    </div>
+  </div>
+</div>
+  </main>
+  <div id="site-footer"></div>
+  <script src="lock.js"></script>
+  <script src="shared-layout.js"></script>
+  <script src="main.js"></script>
+  <script>
+    const zone = document.getElementById('upload-zone');
+    const fileInput = zone.querySelector('input[type="file"]');
+    const slider = document.getElementById('webp-quality');
+    let loadedSrc = null;
+
+    slider.addEventListener('input', () => { document.getElementById('webp-quality-val').textContent = slider.value; });
+
+    function loadFile(file) {
+      const reader = new FileReader();
+      reader.onload = e => {
+        loadedSrc = e.target.result;
+        const img = document.getElementById('img-preview');
+        img.src = loadedSrc; img.style.display = 'block';
+        document.getElementById('ph').style.display = 'none';
+        zone.querySelector('h3').textContent = file.name;
+        zone.querySelector('p').textContent = (file.size/1024).toFixed(1) + ' KB · Ready';
+        zone.style.borderColor = 'var(--teal)';
+      };
+      reader.readAsDataURL(file);
+    }
+
+    fileInput.addEventListener('change', () => { if (fileInput.files[0]) loadFile(fileInput.files[0]); });
+    zone.addEventListener('dragover', e => { e.preventDefault(); zone.classList.add('drag-over'); });
+    zone.addEventListener('dragleave', () => zone.classList.remove('drag-over'));
+    zone.addEventListener('drop', e => { e.preventDefault(); zone.classList.remove('drag-over'); if (e.dataTransfer.files[0]) loadFile(e.dataTransfer.files[0]); });
+
+    function convertToWebp() {
+      if (!loadedSrc) { alert('Please upload an image first.'); return; }
+      const quality = parseInt(slider.value) / 100;
+      const img = new Image();
+      img.onload = () => {
+        const canvas = document.createElement('canvas');
+        canvas.width = img.naturalWidth; canvas.height = img.naturalHeight;
+        canvas.getContext('2d').drawImage(img, 0, 0);
+        const dataUrl = canvas.toDataURL('image/webp', quality);
+        const dl = document.getElementById('dl-btn');
+        dl.href = dataUrl; dl.style.display = 'inline-flex';
+      };
+      img.src = loadedSrc;
+    }
+
+    function resetTool() {
+      loadedSrc = null;
+      document.getElementById('img-preview').style.display = 'none';
+      document.getElementById('ph').style.display = '';
+      document.getElementById('dl-btn').style.display = 'none';
+      zone.querySelector('h3').textContent = 'Drop your image here';
+      zone.querySelector('p').textContent = 'JPG, PNG, GIF, BMP supported';
+      zone.style.borderColor = ''; fileInput.value = '';
+    }
+  </script>
+</body>
+</html>

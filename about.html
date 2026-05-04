@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!-- Primary SEO -->
+<title>About PIXORA Tools | Free Privacy-First Online Image Toolkit</title>
+<meta name="title" content="About PIXORA Tools | Free Privacy-First Online Image Toolkit" />
+<meta name="description" content="Learn about PIXORA Tools — a fast, privacy-first browser-based image toolkit for creators. Compress, resize, crop, convert, and edit images online for free with zero uploads." />
+<meta name="keywords" content="about pixora tools, image tools, free image editor, online image compressor, resize images online, crop images, image converter, browser image tools, privacy-first tools, no upload image editor" />
+<meta name="author" content="PIXORA Tools" />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+<meta name="language" content="English" />
+<meta name="revisit-after" content="7 days" />
+
+<!-- Canonical -->
+<link rel="canonical" href="https://pixoratools.github.io/about.html" />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://pixoratools.github.io/about.html" />
+<meta property="og:title" content="About PIXORA Tools | Free Privacy-First Online Image Toolkit" />
+<meta property="og:description" content="Discover PIXORA Tools — free browser-based image tools built for speed, privacy, and creators. No uploads, no tracking, no accounts." />
+<meta property="og:image" content="https://pixoratools.github.io/assets/preview.png" />
+<meta property="og:site_name" content="PIXORA Tools" />
+<meta property="og:locale" content="en_US" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:url" content="https://pixoratools.github.io/about.html" />
+<meta name="twitter:title" content="About PIXORA Tools | Free Privacy-First Online Image Toolkit" />
+<meta name="twitter:description" content="Learn how PIXORA Tools helps creators edit images online for free with 100% browser-based privacy-first tools." />
+<meta name="twitter:image" content="https://pixoratools.github.io/assets/preview.png" />
+
+<!-- Theme -->
+<meta name="theme-color" content="#0B1628" />
+
+<!-- Favicon -->
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
+
+<!-- Schema.org JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "name": "About PIXORA Tools",
+  "url": "https://pixoratools.github.io/about.html",
+  "description": "Learn about PIXORA Tools, a privacy-first browser-based image toolkit for creators with free tools like compression, cropping, resizing, conversion, and background removal.",
+  "publisher": {
+    "@type": "Organization",
+    "name": "PIXORA Tools",
+    "url": "https://pixoratools.github.io"
+  }
+}
+</script>
+
+
+  <meta name="description" content="PIXORA Tools is a free, privacy-first image toolkit built for creators. All processing happens in your browser — no uploads, no tracking." />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── RESET & GLOBAL RESPONSIVENESS ── */
+    * {
+      box-sizing: border-box;
+      word-wrap: break-word;
+    }
+
+    html, body {
+      max-width: 100%;
+      overflow-x: hidden; /* Prevent horizontal scroll */
+      margin: 0;
+      padding: 0;
+    }
+
+    img, svg, video {
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* ── Font Awesome Refactoring ── */
+    .fa-solid, .fa-regular, .fa-brands {
+      font-size: inherit;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* ── Page Hero ── */
+    .about-hero {
+      background: var(--navy);
+      padding: clamp(60px, 10vh, 100px) 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-hero::before, .about-hero::after {
+      content: '';
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .about-hero::before {
+      top: -10%; right: -5%;
+      width: clamp(300px, 40vw, 560px); 
+      height: clamp(300px, 40vw, 560px);
+      background: radial-gradient(circle, rgba(12,200,200,0.09) 0%, transparent 65%);
+    }
+
+    .about-hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 640px;
+      padding: 0 20px;
+    }
+
+    .about-hero h1 { 
+        color: #fff; 
+        margin-bottom: 18px; 
+        font-size: clamp(2rem, 5vw, 3.5rem);
+        line-height: 1.1;
+    }
+    .about-hero h1 em { font-style: normal; color: var(--teal); }
+
+    .about-hero .lead {
+      font-size: clamp(1rem, 2vw, 1.15rem);
+      color: rgba(255,255,255,0.65);
+      line-height: 1.6;
+    }
+
+    /* ── Manifesto Strip ── */
+    .manifesto-strip {
+  background: var(--teal);
+  padding: 28px 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.manifesto-text {
+  display: flex;
+  gap: 48px;
+  white-space: nowrap;
+  animation: scrollText 20s linear infinite;
+  width: max-content;
+}
+
+@keyframes scrollText {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.manifesto-strip:hover .manifesto-text {
+  animation-play-state: paused;
+}
+
+    /* ── Mission Section ── */
+    .mission-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+      padding: 0 20px;
+    }
+
+    .mission-visual {
+      position: relative;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+
+    .visual-stack {
+      position: relative;
+      width: 100%;
+      max-width: 450px;
+      height: 350px;
+    }
+
+    .vis-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+      padding: 15px;
+    }
+
+    /* Relative positioning for cards so they scale within the container */
+    .vis-card-main {
+      position: absolute;
+      width: 65%;
+      top: 10%; left: 0;
+      z-index: 3;
+    }
+
+    .vis-card-secondary {
+      position: absolute;
+      width: 55%;
+      bottom: 5%; right: 0;
+      z-index: 4;
+    }
+
+    .vis-card-bg {
+      position: absolute;
+      width: 60%;
+      top: 20%; right: 5%;
+      z-index: 1;
+      opacity: 0.4;
+    }
+
+    .vis-badge-float {
+      position: absolute;
+      bottom: 5%; left: -5%;
+      z-index: 10;
+      background: var(--navy);
+      color: #fff;
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-size: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* ── Grids ── */
+    .principles-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      background: var(--border);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+    }
+
+    .principle-cell {
+      background: var(--bg-card);
+      padding: clamp(20px, 4vw, 36px);
+    }
+
+    .privacy-promise {
+      background: var(--navy);
+      border-radius: var(--radius-xl);
+      padding: clamp(30px, 5vw, 64px);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .tools-mini-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 15px;
+    }
+
+    /* ── Tech Section Grid Fix ── */
+    .tech-grid-layout {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        align-items: center;
+    }
+
+    /* ── Breakpoints ── */
+
+    /* Tablet (1024px) */
+    @media (max-width: 1024px) {
+      .mission-layout, 
+      .privacy-promise,
+      .tech-grid-layout {
+        grid-template-columns: 1fr;
+        gap: 60px;
+      }
+      
+      .principles-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /* Mobile Landscape (768px) */
+    @media (max-width: 768px) {
+      .principles-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .about-hero {
+        text-align: center;
+      }
+      
+      .about-hero-inner {
+        margin: 0 auto;
+      }
+      
+      .cta-actions {
+        flex-direction: column;
+      }
+      
+      .cta-actions .btn {
+        width: 100%;
+      }
+
+      .visual-stack {
+          height: 300px;
+      }
+    }
+
+    /* Mobile Portrait (480px) */
+    @media (max-width: 480px) {
+      .section { padding: 40px 0; }
+      
+      .tools-mini-grid {
+        grid-template-columns: 1fr 1fr; /* Maintain 2 columns for icons */
+      }
+
+      .privacy-promise {
+          padding: 30px 20px;
+      }
+
+      .promise-item {
+          padding: 12px;
+      }
+
+      .vis-badge-float {
+          left: 5%;
+      }
+      
+      .manifesto-text {
+          white-space: normal;
+          gap: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <main>
+    <section class="about-hero">
+      <div class="container">
+        <div class="about-hero-inner">
+          <div class="badge badge-teal animate-fade-up" style="margin-bottom:20px">
+            <i class="fa-solid fa-circle-info"></i> Our Story
+          </div>
+          <h1 class="animate-fade-up-2">
+            Built for creators who value <em>speed</em> and <em>privacy</em>
+          </h1>
+          <p class="lead animate-fade-up-3">
+            PIXORA Tools is a free, open-to-all image processing suite that runs entirely inside your browser. No accounts. No uploads. No waiting.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <div class="manifesto-strip">
+  <div class="container">
+    <div class="manifesto-text">
+      <span>Your images stay on your device</span>
+      <span class="manifesto-dot"></span>
+      <span>No servers, no storage, no tracking</span>
+      <span class="manifesto-dot"></span>
+      <span>Always free, always private</span>
+      <span class="manifesto-dot"></span>
+      <span>Built for the open web</span>
+
+      <!-- duplicate for smooth loop -->
+      <span>Your images stay on your device</span>
+      <span class="manifesto-dot"></span>
+      <span>No servers, no storage, no tracking</span>
+      <span class="manifesto-dot"></span>
+      <span>Always free, always private</span>
+      <span class="manifesto-dot"></span>
+      <span>Built for the open web</span>
+    </div>
+  </div>
+</div>
+
+    <section class="section">
+      <div class="container">
+        <div class="mission-layout">
+          <div>
+            <div class="section-label"><span>Mission</span></div>
+            <h2 style="margin-bottom:20px">Instant and Private</h2>
+            <p style="margin-bottom:20px">
+              Most image tools on the web make you wait for uploads. We built PIXORA Tools to process everything locally on your hardware.
+            </p>
+            <div class="stats-row" style="display: flex; gap: 20px; flex-wrap: wrap;">
+              <div class="stat-item">
+                <div class="stat-value" style="font-size: 1.5rem; font-weight: 800; color: var(--navy);">0</div>
+                <div class="stat-label" style="font-size: 0.8rem;">Files Uploaded</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-value" style="font-size: 1.5rem; font-weight: 800; color: var(--navy);">8+</div>
+                <div class="stat-label" style="font-size: 0.8rem;">Pro Tools</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mission-visual">
+            <div class="visual-stack">
+              <div class="vis-card vis-card-bg">
+                <div style="height:10px; background:#eee; border-radius:5px; width:100%; margin-bottom:10px"></div>
+                <div style="height:10px; background:#eee; border-radius:5px; width:70%"></div>
+              </div>
+              <div class="vis-card vis-card-main">
+                <div class="vis-title"><i class="fa-solid fa-bolt" style="color:var(--teal)"></i> Local Engine</div>
+                <div style="height:8px; background:var(--teal); border-radius:5px; width:95%; margin-top:10px"></div>
+              </div>
+              <div class="vis-card vis-card-secondary">
+                  <div class="vis-stat-box">
+                    <div style="font-weight:800">100%</div>
+                    <div style="font-size:0.7rem">Private</div>
+                  </div>
+              </div>
+              <div class="vis-badge-float">
+                <span style="width:8px; height:8px; background:var(--teal); border-radius:50%"></span>
+                Secure Browser Logic
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:0">
+      <div class="container">
+        <div style="text-align:center;margin-bottom:48px; padding: 0 20px;">
+          <div class="section-label" style="justify-content:center"><span>Principles</span></div>
+          <h2>How we think about tools</h2>
+        </div>
+        <div class="principles-grid">
+          <div class="principle-cell">
+            <div class="principle-num">01</div>
+            <h3>Privacy First</h3>
+            <p>Your work never leaves your device. Period.</p>
+          </div>
+          <div class="principle-cell">
+            <div class="principle-num">02</div>
+            <h3>Pure Speed</h3>
+            <p>On-device processing means zero upload latency.</p>
+          </div>
+          <div class="principle-cell">
+            <div class="principle-num">03</div>
+            <h3>No Cost</h3>
+            <p>Pro-grade tools accessible to everyone for free.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:0">
+        <div class="container">
+          <div class="privacy-promise">
+            <div class="pp-left">
+              <h2 style="color:#fff">No Server, No Problem.</h2>
+              <p style="color:rgba(255,255,255,0.7)">Every action happens in your browser's memory. We don't even have a place to store your images if we wanted to.</p>
+            </div>
+            <div class="pp-right">
+              <div class="promise-list">
+                <div class="promise-item" style="background:rgba(255,255,255,0.05); padding:15px; border-radius:10px; display:flex; gap:15px; align-items:center; color:#fff;">
+                  <i class="fa-solid fa-shield-halved"></i>
+                  <span>Zero Data Collection</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>
+
+     <!-- ══ Final CTA ══════════════════════════ -->
+    <section class="section" style="padding-top:0">
+      <div class="container">
+        <div class="about-cta reveal">
+          <div class="badge badge-teal" style="margin-bottom:20px;display:inline-flex"><i class="fa-solid fa-rocket"></i> Ready to start?</div>
+          <h2>Try PIXORA Tools today<br />— completely free</h2>
+          <p>No sign-up. No credit card. No uploads. Just open a tool and start creating.</p>
+          <div class="cta-actions">
+            <a href="tools.html" class="btn btn-primary btn-lg"><i class="fa-solid fa-toolbox" style="margin-right:8px"></i> Browse All Tools</a>
+            <a href="compressor.html" class="btn btn-teal btn-lg"><i class="fa-solid fa-bolt" style="margin-right:8px"></i> Start Compressing</a>
+            <a href="contact.html" class="btn btn-outline btn-lg"><i class="fa-solid fa-envelope" style="margin-right:8px"></i> Get in Touch</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <style>
+    /* ══ FINAL CTA SECTION ═════════════════════ */
+
+.about-cta {
+  text-align: center;
+  padding: 90px 40px;
+  background: linear-gradient(135deg, #0b1628 0%, #0f223d 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+}
+
+/* subtle glow effect */
+.about-cta::before {
+  content: "";
+  position: absolute;
+  top: -80px;
+  right: -80px;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(12, 200, 200, 0.25), transparent 70%);
+  filter: blur(20px);
+}
+
+.about-cta::after {
+  content: "";
+  position: absolute;
+  bottom: -100px;
+  left: -100px;
+  width: 220px;
+  height: 220px;
+  background: radial-gradient(circle, rgba(212, 168, 83, 0.15), transparent 70%);
+  filter: blur(25px);
+}
+
+.about-cta .badge {
+  font-size: 0.85rem;
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-weight: 600;
+  background: rgba(12, 200, 200, 0.12);
+  color: #0cc8c8;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  backdrop-filter: blur(10px);
+}
+
+.about-cta h2 {
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  color: #ffffff;
+  font-weight: 800;
+  margin: 18px 0 14px;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.about-cta p {
+  max-width: 520px;
+  margin: 0 auto 34px;
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+/* CTA buttons layout */
+.cta-actions {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+/* button enhancements (if not already defined globally) */
+.cta-actions a {
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+/* hover effects */
+.cta-actions a:hover {
+  transform: translateY(-3px);
+  filter: brightness(1.1);
+}
+
+/* PRIMARY BUTTON */
+.btn-primary.btn-lg {
+  background: linear-gradient(135deg, #0cc8c8, #0a9f9f);
+  color: #fff;
+  border: none;
+  padding: 14px 22px;
+  border-radius: 12px;
+  font-weight: 600;
+  box-shadow: 0 10px 25px rgba(12, 200, 200, 0.25);
+}
+
+/* TEAL BUTTON */
+.btn-teal.btn-lg {
+  background: rgba(12, 200, 200, 0.12);
+  color: #0cc8c8;
+  border: 1px solid rgba(12, 200, 200, 0.4);
+  padding: 14px 22px;
+  border-radius: 12px;
+  font-weight: 600;
+}
+
+/* OUTLINE BUTTON */
+.btn-outline.btn-lg {
+  background: transparent;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  padding: 14px 22px;
+  border-radius: 12px;
+  font-weight: 600;
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+  .about-cta {
+    padding: 60px 20px;
+    border-radius: 18px;
+  }
+
+  .cta-actions {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .cta-actions a {
+    width: 100%;
+    text-align: center;
+  }
+}
+  </style>
+
+  <div id="site-footer"></div>
+  <script src="lock.js"></script>
+  <script src="shared-layout.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>

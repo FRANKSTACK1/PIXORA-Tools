@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>All Image Tools Free Online — Compress, Resize, Convert & Edit | PIXORA Tools</title>
+
+<meta name="description" content="Explore all free PIXORA Tools in one place. Compress, resize, crop, convert JPG to PNG, PNG to JPG, WebP converter and more — 100% browser-based, fast and private." />
+
+<meta name="keywords" content="all image tools, free image tools online, image compressor, resize image, crop image, jpg to png, png to jpg, webp converter, bulk image tools, PIXORA tools" />
+
+<meta name="robots" content="index, follow" />
+<meta name="author" content="PIXORA Tools" />
+
+<link rel="canonical" href="https://yourdomain.com/tools.html" />
+
+<!-- Open Graph (Facebook, LinkedIn, WhatsApp) -->
+<meta property="og:title" content="All Free Image Tools — PIXORA Tools" />
+<meta property="og:description" content="Access all PIXORA image tools in one place: compress, resize, crop, convert formats and more. Fast, free, and fully browser-based." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://yourdomain.com/tools.html" />
+<meta property="og:image" content="https://yourdomain.com/assets/preview-tools.png" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="All Image Tools — PIXORA Tools" />
+<meta name="twitter:description" content="Free online image tools: compress, resize, crop, convert and more. No uploads, 100% private." />
+<meta name="twitter:image" content="https://yourdomain.com/assets/preview-tools.png" />
+
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .tools-hub-header {
+      background: var(--navy);
+      padding: 60px 0 72px;
+      position: relative;
+      overflow: hidden;
+    }
+    .tools-hub-header::before {
+      content: '';
+      position: absolute;
+      top: -30%; right: -5%;
+      width: 500px; height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(12,200,200,0.07) 0%, transparent 70%);
+    }
+    .tools-hub-header h1 { color: #fff; margin-bottom: 10px; }
+    .tools-hub-header p { color: rgba(255,255,255,0.55); font-size: 1.05rem; max-width: 480px; }
+
+    .search-bar {
+      margin-top: 28px;
+      display: flex;
+      max-width: 420px;
+      gap: 0;
+    }
+
+    .search-bar input {
+      flex: 1;
+      border-right: none;
+      border-radius: var(--radius-sm) 0 0 var(--radius-sm);
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(255,255,255,0.15);
+      color: #fff;
+      font-size: 0.9rem;
+    }
+
+    .search-bar input::placeholder { color: rgba(255,255,255,0.35); }
+    .search-bar input:focus { border-color: var(--teal); background: rgba(255,255,255,0.12); }
+
+    .search-bar button {
+      padding: 12px 18px;
+      background: var(--teal);
+      border: none;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background var(--transition);
+    }
+
+    .search-bar button:hover { background: var(--teal-dim); }
+
+    .tools-body { padding: 56px 0; }
+
+    .category-title {
+      font-family: var(--font-display);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .tools-section { margin-bottom: 56px; }
+
+    .tool-card-lg {
+      background: var(--bg-card);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      padding: 32px 28px;
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      cursor: pointer;
+      transition: all var(--transition);
+      text-decoration: none;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .tool-card-lg::after {
+      content: '→';
+      position: absolute;
+      top: 28px; right: 28px;
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      transition: all var(--transition);
+    }
+
+    .tool-card-lg:hover {
+      border-color: rgba(12,200,200,0.3);
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-3px);
+    }
+
+    .tool-card-lg:hover::after {
+      color: var(--teal);
+      right: 24px;
+    }
+
+    .tool-card-lg .tool-icon {
+      width: 56px; height: 56px;
+      border-radius: var(--radius-md);
+      font-size: 1.6rem;
+      flex-shrink: 0;
+    }
+
+    .tool-card-lg h3 { font-size: 1.05rem; color: var(--navy); margin-bottom: 5px; }
+    .tool-card-lg p { font-size: 0.875rem; color: var(--text-muted); line-height: 1.5; margin: 0; max-width: 280px; }
+
+    .tool-card-lg .tags { display: flex; gap: 6px; margin-top: 10px; flex-wrap: wrap; }
+
+    .tag {
+      display: inline-flex;
+      padding: 2px 10px;
+      border-radius: 100px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+    }
+
+    .tools-lg-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 16px;
+    }
+
+    @media (max-width: 480px) {
+      .tools-lg-grid { grid-template-columns: 1fr; }
+      .tool-card-lg { padding: 20px 16px; }
+      .tool-card-lg::after { display: none; }
+    }
+
+    /* Icon adjustments */
+    .upload-icon i,
+    .tool-icon i,
+    .feature-icon i,
+    .preview-placeholder .icon i,
+    .info-box .icon i,
+    .badge i,
+    .btn i,
+    .search-bar button i {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      vertical-align: middle;
+      line-height: 1;
+    }
+
+    .tool-icon i {
+      font-size: 1.35rem;
+    }
+
+    .badge i,
+    .btn i {
+      margin-right: 6px;
+    }
+
+    .search-bar button i {
+      font-size: 1rem;
+    }
+
+    .info-box .icon i,
+    .preview-placeholder .icon i {
+      font-size: 1.2rem;
+    }
+  </style>
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <main>
+    <!-- Hub Header -->
+    <div class="tools-hub-header">
+      <div class="container">
+        <div class="badge badge-teal" style="margin-bottom:16px"><i class="fas fa-toolbox"></i> Tool Hub</div>
+        <h1>All Image Tools</h1>
+        <p>Everything you need to process, convert, and optimize images — all in one place.</p>
+        <div class="search-bar">
+          <input type="text" id="tool-search" placeholder="Search tools…" />
+          <button><i class="fas fa-magnifying-glass"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="tools-body">
+      <div class="container">
+
+        <!-- Compression & Optimization -->
+        <div class="tools-section">
+          <div class="category-title">Compression & Optimization</div>
+          <div class="tools-lg-grid">
+            <a href="compressor.html" class="tool-card-lg reveal">
+              <div class="tool-icon" style="background:rgba(11,22,40,0.06)"><i class="fas fa-file-zipper"></i></div>
+              <div>
+                <h3>Image Compressor</h3>
+                <p>Reduce file size without visible quality loss. Drag & drop, use the slider, done.</p>
+                <div class="tags">
+                  <span class="tag">JPG</span>
+                  <span class="tag">PNG</span>
+                  <span class="tag">WebP</span>
+                  <span class="badge badge-teal" style="font-size:0.7rem">Popular</span>
+                </div>
+              </div>
+            </a>
+            <a href="webp.html" class="tool-card-lg reveal">
+              <div class="tool-icon" style="background:rgba(12,200,200,0.08)"><i class="fas fa-globe"></i></div>
+              <div>
+                <h3>WebP Converter</h3>
+                <p>Convert any image to Google's modern WebP format for maximum compression.</p>
+                <div class="tags"><span class="tag">JPG</span><span class="tag">PNG</span><span class="tag">→ WebP</span></div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Format Conversion -->
+        <div class="tools-section">
+          <div class="category-title">Format Conversion</div>
+          <div class="tools-lg-grid">
+            <a href="jpg-to-png.html" class="tool-card-lg reveal">
+              <div class="tool-icon" style="background:rgba(212,168,83,0.1)"><i class="fas fa-arrows-rotate"></i></div>
+              <div>
+                <h3>JPG → PNG</h3>
+                <p>Convert JPEG images to lossless PNG format. Preserves transparency.</p>
+                <div class="tags"><span class="tag">JPG → PNG</span><span class="tag">Lossless</span></div>
+              </div>
+            </a>
+            <a href="png-to-jpg.html" class="tool-card-lg reveal">
+              <div class="tool-icon" style="background:rgba(11,22,40,0.06)"><i class="fas fa-image"></i></div>
+              <div>
+                <h3>PNG → JPG</h3>
+                <p>Convert PNG to JPG with a custom background color to fill transparent areas.</p>
+                <div class="tags"><span class="tag">PNG → JPG</span><span class="tag">Background Fill</span></div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Editing -->
+        <div class="tools-section">
+          <div class="category-title">Editing & Transformation</div>
+          <div class="tools-lg-grid">
+            <a href="resize.html" class="tool-card-lg reveal">
+              <div class="tool-icon" style="background:rgba(12,200,200,0.08)"><i class="fas fa-left-right"></i></div>
+              <div>
+                <h3>Resize Image</h3>
+                <p>Set custom dimensions with optional aspect ratio lock. Live preview included.</p>
+                <div class="tags"><span class="tag">Width/Height</span><span class="tag">Aspect Lock</span><span class="tag">Preview</span></div>
+              </div>
+            </a>
+            <a href="crop.html" class="tool-card-lg reveal">
+              <div class="tool-icon" style="background:rgba(212,168,83,0.1)"><i class="fas fa-crop-simple"></i></div>
+              <div>
+                <h3>Crop Image</h3>
+                <p>Drag to select your crop area. Includes social media presets (1:1, 16:9, 4:3).</p>
+                <div class="tags"><span class="tag">Drag Crop</span><span class="tag">Presets</span><span class="tag">Freeform</span></div>
+              </div>
+            </a>
+            <a href="background-remover.html" class="tool-card-lg reveal">
+              <div class="tool-icon" style="background:rgba(11,22,40,0.06)"><i class="fas fa-wand-magic-sparkles"></i></div>
+              <div>
+                <h3>Background Remover</h3>
+                <p>Manually erase backgrounds with a brush tool. Export as transparent PNG.</p>
+                <div class="tags">
+                  <span class="tag">Brush Tool</span>
+                  <span class="tag">Transparent PNG</span>
+                  <span class="badge badge-beta">Beta</span>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Bulk -->
+        <div class="tools-section">
+          <div class="category-title">Batch & Bulk Operations</div>
+          <div class="tools-lg-grid">
+            <a href="bulk-renamer.html" class="tool-card-lg reveal">
+              <div class="tool-icon" style="background:rgba(12,200,200,0.08)"><i class="fas fa-folder"></i></div>
+              <div>
+                <h3>Bulk Image Renamer</h3>
+                <p>Upload multiple images and rename them with custom patterns. Export as ZIP.</p>
+                <div class="tags"><span class="tag">Pattern Rename</span><span class="tag">Auto-Number</span><span class="tag">ZIP Export</span></div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Info box -->
+        <div class="info-box">
+          <span class="icon"><i class="fas fa-lock"></i></span>
+          <p><strong>Privacy First:</strong> All PIXORA Tools run 100% in your browser. Your images are never uploaded to any server. Everything is processed locally on your device.</p>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="lock.js"></script>
+
+  <script src="shared-layout.js"></script>
+  <script src="main.js"></script>
+  <script>
+    // Live search filter
+    const searchInput = document.getElementById('tool-search');
+    if (searchInput) {
+      searchInput.addEventListener('input', () => {
+        const q = searchInput.value.toLowerCase();
+        document.querySelectorAll('.tool-card-lg').forEach(card => {
+          const text = card.textContent.toLowerCase();
+          card.style.display = text.includes(q) ? '' : 'none';
+        });
+      });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- BASIC META -->
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>Bulk Image Renamer — Rename Multiple Images Instantly | PIXORA Tools</title>
+
+<meta name="description" content="Rename multiple images instantly in bulk with PIXORA Tools. 100% free, browser-based bulk image renamer with no uploads, no signup, and complete privacy." />
+
+<meta name="keywords" content="bulk image renamer, rename multiple images, image renaming tool, batch rename photos, free image renamer online, file renamer, PIXORA tools, rename images in bulk" />
+
+<meta name="author" content="PIXORA Tools" />
+
+<meta name="robots" content="index, follow" />
+
+<!-- CANONICAL URL -->
+<link rel="canonical" href="https://yourdomain.com/bulk-image-renamer.html" />
+
+<!-- OPEN GRAPH (Facebook, WhatsApp, LinkedIn) -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Bulk Image Renamer — PIXORA Tools" />
+<meta property="og:description" content="Rename multiple images instantly in your browser. No upload, no tracking, completely free bulk image renamer tool." />
+<meta property="og:url" content="https://yourdomain.com/bulk-image-renamer.html" />
+<meta property="og:site_name" content="PIXORA Tools" />
+<meta property="og:image" content="https://yourdomain.com/assets/og/bulk-image-renamer.png" />
+
+<!-- TWITTER CARD -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Bulk Image Renamer — PIXORA Tools" />
+<meta name="twitter:description" content="Rename multiple images at once instantly in your browser. Free, fast, and private bulk renaming tool." />
+<meta name="twitter:image" content="https://yourdomain.com/assets/og/bulk-image-renamer.png" />
+
+<!-- THEME COLOR -->
+<meta name="theme-color" content="#0CC8C8" />
+
+<!-- OPTIONAL: PRECONNECT (speed boost for SEO performance) -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <style>
+    .rename-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 16px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      background: var(--bg);
+      font-size: 0.875rem;
+      flex-wrap: wrap;
+    }
+
+    .rename-row + .rename-row { margin-top: 8px; }
+
+    .old-name { color: var(--text-muted); flex: 1; min-width: 120px; word-break: break-all; }
+    .arrow-icon { color: var(--teal); font-weight: 700; flex-shrink: 0; }
+    .new-name { color: var(--navy); font-weight: 600; flex: 1; min-width: 120px; word-break: break-all; }
+    .rename-row.muted { color: var(--text-muted); font-style: italic; justify-content: center; }
+
+    .pattern-hint {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 6px;
+    }
+
+    .pattern-hint code {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      padding: 1px 6px;
+      border-radius: 4px;
+      font-family: monospace;
+      font-size: 0.8rem;
+      color: var(--teal-dim);
+    }
+
+    .file-count-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--teal-subtle);
+      border: 1px solid rgba(12,200,200,0.2);
+      border-radius: 100px;
+      padding: 4px 14px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--teal-dim);
+    }
+
+    /* Font Awesome Integration Styles */
+    .tool-icon,
+    .upload-icon i,
+    .file-count-badge i,
+    .arrow-icon i,
+    .icon i,
+    .btn i {
+      font-size: 1rem;
+      vertical-align: middle;
+    }
+
+    .upload-icon i {
+      font-size: 2rem;
+    }
+
+    .btn i,
+    .file-count-badge i,
+    .tool-icon {
+      margin-right: 6px;
+    }
+
+    .arrow-icon i {
+      color: var(--teal);
+      font-size: 0.9rem;
+    }
+
+    .icon i {
+      color: var(--teal);
+      font-size: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div id="site-header"></div>
+  <main>
+    <div class="tool-page-header">
+      <div class="container">
+        <a href="tools.html" style="display:inline-flex;align-items:center;gap:6px;color:rgba(255,255,255,0.4);font-size:0.85rem;margin-bottom:20px;transition:color 0.2s" onmouseover="this.style.color='rgba(255,255,255,0.7)'" onmouseout="this.style.color='rgba(255,255,255,0.4)'"><i class="fa-solid fa-arrow-left"></i> Back to Tools</a>
+        <div class="badge badge-teal" style="margin-bottom:14px"><i class="fa-solid fa-folder-open tool-icon"></i> Bulk</div>
+        <h1>Bulk Image Renamer</h1>
+        <p>Upload multiple images, set a naming pattern, and download all renamed files as a ZIP archive.</p>
+      </div>
+    </div>
+
+    <div class="tool-page-body">
+      <div class="container">
+        <div class="tool-workspace">
+          <!-- Upload multiple -->
+          <div class="upload-zone" id="upload-zone" style="margin-bottom:32px">
+            <input type="file" accept="image/*" multiple id="bulk-files" />
+            <div class="upload-icon">
+              <i class="fa-solid fa-folder-open"></i>
+            </div>
+            <h3>Drop multiple images here</h3>
+            <p>Select multiple files — hold Shift or Ctrl</p>
+          </div>
+
+          <!-- File count -->
+          <div style="margin-bottom:24px;display:flex;align-items:center;gap:12px">
+            <div class="file-count-badge"><i class="fa-solid fa-folder-open"></i> <span id="file-count">0 files</span> selected</div>
+            <button class="btn btn-ghost btn-sm" onclick="clearFiles()">Clear</button>
+          </div>
+
+          <!-- Pattern -->
+          <div class="form-group" style="margin-bottom:28px">
+            <label for="rename-pattern" style="font-weight:600">Rename Pattern</label>
+            <input type="text" id="rename-pattern" value="image_{n}" placeholder="e.g. photo_{n}" />
+            <div class="pattern-hint">
+              Use <code>{n}</code> for auto-number · <code>{date}</code> for today's date · Example: <code>product_{n}</code> → product_01.jpg, product_02.jpg…
+            </div>
+          </div>
+
+          <!-- Start number -->
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:28px">
+            <div class="form-group">
+              <label for="start-num">Start Number</label>
+              <input type="number" id="start-num" value="1" min="0" max="9999" />
+            </div>
+            <div class="form-group">
+              <label for="pad-zeros">Zero Padding</label>
+              <select id="pad-zeros">
+                <option value="1">None (1, 2, 3…)</option>
+                <option value="2" selected>2 digits (01, 02…)</option>
+                <option value="3">3 digits (001, 002…)</option>
+                <option value="4">4 digits (0001, 0002…)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="divider"></div>
+
+          <!-- Preview list -->
+          <div style="margin-bottom:28px">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px">
+              <label style="font-weight:600">Rename Preview</label>
+              <button class="btn btn-ghost btn-sm" onclick="updateBulkPreview()"><i class="fa-solid fa-rotate-right"></i> Refresh</button>
+            </div>
+            <div id="rename-preview">
+              <div class="rename-row muted">Upload files to see rename preview</div>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:12px;flex-wrap:wrap">
+            <button class="btn btn-teal" onclick="downloadZip()"><i class="fa-solid fa-box-archive"></i> Download ZIP</button>
+            <button class="btn btn-ghost" onclick="clearFiles()"><i class="fa-solid fa-rotate-left"></i> Reset</button>
+          </div>
+
+          <div class="info-box" style="margin-top:24px">
+            <span class="icon"><i class="fa-solid fa-circle-info"></i></span>
+            <p>ZIP file is created entirely in your browser — no files are uploaded to any server. Large batches (100+ files) may take a moment to package.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <div id="site-footer"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+  <script src="lock.js"></script>
+  <script src="shared-layout.js"></script>
+  <script src="main.js"></script>
+  <script>
+    const fileInput = document.getElementById('bulk-files');
+    const patternInput = document.getElementById('rename-pattern');
+    const previewList = document.getElementById('rename-preview');
+    let bulkFiles = [];
+
+    function getNewName(file, index) {
+      const pad = parseInt(document.getElementById('pad-zeros').value);
+      const start = parseInt(document.getElementById('start-num').value);
+      const n = String(start + index).padStart(pad, '0');
+      const ext = file.name.split('.').pop().toLowerCase();
+      const date = new Date().toISOString().slice(0,10);
+      return (patternInput.value || 'image_{n}')
+        .replace('{n}', n)
+        .replace('{date}', date) + '.' + ext;
+    }
+
+    function updateBulkPreview() {
+      if (bulkFiles.length === 0) {
+        previewList.innerHTML = '<div class="rename-row muted">Upload files to see rename preview</div>';
+        return;
+      }
+      const shown = bulkFiles.slice(0, 6);
+      previewList.innerHTML = shown.map((f, i) => {
+        const newName = getNewName(f, i);
+        return `<div class="rename-row"><span class="old-name">${f.name}</span><span class="arrow-icon"><i class="fa-solid fa-arrow-right"></i></span><span class="new-name">${newName}</span></div>`;
+      }).join('');
+      if (bulkFiles.length > 6) {
+        previewList.innerHTML += `<div class="rename-row muted">…and ${bulkFiles.length - 6} more files</div>`;
+      }
+    }
+
+    fileInput.addEventListener('change', () => {
+      bulkFiles = Array.from(fileInput.files);
+      document.getElementById('file-count').textContent = bulkFiles.length + (bulkFiles.length === 1 ? ' file' : ' files');
+      updateBulkPreview();
+      const zone = document.getElementById('upload-zone');
+      zone.querySelector('h3').textContent = bulkFiles.length + ' files selected';
+      zone.style.borderColor = 'var(--teal)';
+    });
+
+    patternInput.addEventListener('input', updateBulkPreview);
+    document.getElementById('start-num').addEventListener('input', updateBulkPreview);
+    document.getElementById('pad-zeros').addEventListener('change', updateBulkPreview);
+
+    async function downloadZip() {
+      if (bulkFiles.length === 0) { alert('Please upload images first.'); return; }
+      const zip = new JSZip();
+      const folder = zip.folder('pixora-renamed');
+      const usedNames = new Set();
+
+      for (let i = 0; i < bulkFiles.length; i++) {
+        let name = getNewName(bulkFiles[i], i);
+        // Avoid duplicate names
+        let base = name.split('.').slice(0,-1).join('.');
+        let ext = name.split('.').pop();
+        let suffix = 0;
+        while (usedNames.has(name)) { suffix++; name = base + '_' + suffix + '.' + ext; }
+        usedNames.add(name);
+        folder.file(name, bulkFiles[i]);
+      }
+
+      const blob = await zip.generateAsync({ type: 'blob' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url; a.download = 'pixora-renamed.zip';
+      document.body.appendChild(a); a.click(); document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
+
+    function clearFiles() {
+      bulkFiles = [];
+      fileInput.value = '';
+      document.getElementById('file-count').textContent = '0 files';
+      previewList.innerHTML = '<div class="rename-row muted">Upload files to see rename preview</div>';
+      const zone = document.getElementById('upload-zone');
+      zone.querySelector('h3').textContent = 'Drop multiple images here';
+      zone.style.borderColor = '';
+    }
+  </script>
+</body>
+</html>

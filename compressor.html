@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- BASIC META -->
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>Image Compressor — Compress Images Without Losing Quality | PIXORA Tools</title>
+
+<meta name="description" content="Compress images instantly without losing quality using PIXORA Tools. Free, fast, and 100% browser-based image compressor with no uploads or signup required." />
+
+<meta name="keywords" content="image compressor, compress images online, reduce image size, photo compressor, free image compression tool, optimize images, reduce KB image, PIXORA tools, compress JPG PNG WebP" />
+
+<meta name="author" content="PIXORA Tools" />
+
+<meta name="robots" content="index, follow" />
+
+<!-- CANONICAL -->
+<link rel="canonical" href="https://yourdomain.com/image-compressor.html" />
+
+<!-- OPEN GRAPH -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Image Compressor — PIXORA Tools" />
+<meta property="og:description" content="Compress images instantly in your browser without losing quality. No upload, no signup, completely free image compression tool." />
+<meta property="og:url" content="https://yourdomain.com/image-compressor.html" />
+<meta property="og:site_name" content="PIXORA Tools" />
+<meta property="og:image" content="https://yourdomain.com/assets/og/image-compressor.png" />
+
+<!-- TWITTER CARD -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Image Compressor — PIXORA Tools" />
+<meta name="twitter:description" content="Reduce image size instantly without quality loss. Free, fast, and private browser-based image compressor." />
+<meta name="twitter:image" content="https://yourdomain.com/assets/og/image-compressor.png" />
+
+<!-- PERFORMANCE / SEO BOOST -->
+<meta name="theme-color" content="#0CC8C8" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+  <style>
+    /* Font Awesome Icon Alignment Styles */
+    .fa-icon,
+    button i,
+    .upload-icon i,
+    .info-box .icon i,
+    .badge i {
+      font-size: 1rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      vertical-align: middle;
+      margin-right: 4px;
+    }
+
+    .upload-icon i {
+      font-size: 2rem;
+      margin-right: 0;
+    }
+
+    .info-box .icon i {
+      font-size: 1.1rem;
+    }
+
+    .badge i {
+        margin-right: 6px;
+    }
+
+    .before-after {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .ba-panel {
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
+      overflow: hidden;
+    }
+
+    .ba-label {
+      padding: 8px 14px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .ba-image {
+      min-height: 180px;
+      background: repeating-conic-gradient(#E4E8EF 0% 25%, #fff 0% 50%) 0 0 / 14px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .ba-image img {
+      max-width: 100%;
+      max-height: 200px;
+      object-fit: contain;
+      display: none;
+    }
+
+    .ba-placeholder {
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      padding: 32px 16px;
+    }
+
+    .slider-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .slider-row label { white-space: nowrap; flex-shrink: 0; }
+
+    .quality-display {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--navy);
+      min-width: 52px;
+      text-align: right;
+    }
+
+    .result-bar {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .result-stat { display: flex; flex-direction: column; gap: 2px; }
+    .result-stat .v { font-weight: 700; font-size: 1rem; color: var(--navy); }
+    .result-stat .l { font-size: 0.78rem; color: var(--text-muted); }
+
+    .saving-badge {
+      background: rgba(12,200,200,0.1);
+      border: 1px solid rgba(12,200,200,0.2);
+      border-radius: 100px;
+      padding: 4px 14px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--teal-dim);
+    }
+
+    @media (max-width: 600px) {
+      .before-after { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <main>
+    <!-- Tool Header -->
+    <div class="tool-page-header">
+      <div class="container">
+        <a href="tools.html" style="display:inline-flex;align-items:center;gap:6px;color:rgba(255,255,255,0.4);font-size:0.85rem;margin-bottom:20px;transition:color 0.2s" onmouseover="this.style.color='rgba(255,255,255,0.7)'" onmouseout="this.style.color='rgba(255,255,255,0.4)'"><i class="fas fa-arrow-left"></i> Back to Tools</a>
+        <div class="badge badge-teal" style="margin-bottom:14px"><i class="fas fa-compress-alt"></i> Compressor</div>
+        <h1>Image Compressor</h1>
+        <p>Reduce file size without visible quality loss. Adjust compression level and download instantly.</p>
+      </div>
+    </div>
+
+    <div class="tool-page-body">
+      <div class="container">
+        <div class="tool-workspace">
+
+          <!-- Upload Zone -->
+          <div class="upload-zone" id="upload-zone" style="margin-bottom:32px">
+            <input type="file" accept="image/*" />
+            <div class="upload-icon"><i class="fas fa-upload"></i></div>
+            <h3>Drop your image here</h3>
+            <p>or click to browse — JPG, PNG, WebP supported</p>
+          </div>
+
+          <!-- Compression Controls -->
+          <div style="margin-bottom:28px">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px">
+              <label style="font-weight:600">Compression Quality</label>
+              <div class="quality-display"><span id="quality-val">75</span><span style="font-size:1rem;color:var(--text-muted)">%</span></div>
+            </div>
+            <div class="slider-row">
+              <span style="font-size:0.8rem;color:var(--text-muted)">Small</span>
+              <input type="range" id="quality" min="10" max="100" value="75" data-unit="%" />
+              <span style="font-size:0.8rem;color:var(--text-muted)">Large</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;margin-top:8px">
+              <span style="font-size:0.75rem;color:var(--text-muted)">Max compression</span>
+              <span style="font-size:0.75rem;color:var(--text-muted)">Original quality</span>
+            </div>
+          </div>
+
+          <div class="divider"></div>
+
+          <!-- Before / After -->
+          <div style="margin-bottom:24px">
+            <label style="font-weight:600;display:block;margin-bottom:16px">Preview</label>
+            <div class="before-after">
+              <div class="ba-panel">
+                <div class="ba-label">Original <span id="orig-size">—</span></div>
+                <div class="ba-image">
+                  <img id="preview-orig" class="uploaded-preview" alt="Original" />
+                  <div class="ba-placeholder" id="ph-orig"><div style="font-size:1.5rem;margin-bottom:6px"><i class="fas fa-image"></i></div>Upload an image</div>
+                </div>
+              </div>
+              <div class="ba-panel">
+                <div class="ba-label">Compressed <span id="comp-size">—</span></div>
+                <div class="ba-image">
+                  <img id="preview-comp" alt="Compressed" style="display:none;max-width:100%;max-height:200px;object-fit:contain" />
+                  <div class="ba-placeholder" id="ph-comp"><div style="font-size:1.5rem;margin-bottom:6px"><i class="fas fa-magic"></i></div>Result appears here</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Result Stats -->
+          <div class="result-bar" style="margin-bottom:24px">
+            <div class="result-stat"><span class="v" id="s-orig">—</span><span class="l">Original Size</span></div>
+            <div class="result-stat"><span class="v" id="s-comp">—</span><span class="l">Compressed Size</span></div>
+            <div class="result-stat"><span class="v" id="s-ratio">—</span><span class="l">Compression Ratio</span></div>
+            <div class="saving-badge" id="saving-pct">Upload image to start</div>
+          </div>
+
+          <!-- Actions -->
+          <div style="display:flex;gap:12px;flex-wrap:wrap">
+            <button class="btn btn-teal" id="compress-btn" onclick="compressImage()"><i class="fas fa-bolt"></i> Compress Image</button>
+            <a class="btn btn-primary" id="download-btn" style="display:none" download="compressed.jpg"><i class="fas fa-download"></i> Download</a>
+            <button class="btn btn-ghost" onclick="resetTool()"><i class="fas fa-rotate-left"></i> Reset</button>
+          </div>
+
+        </div>
+
+        <!-- Tips -->
+        <div class="info-box" style="margin-top:24px">
+          <span class="icon"><i class="fas fa-lightbulb"></i></span>
+          <p>For photos, quality around <strong>70–80%</strong> gives the best balance of file size and visual quality. For text-heavy images, use <strong>85%+</strong> to avoid artifacts.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="lock.js"></script>
+  <script src="shared-layout.js"></script>
+  <script src="main.js"></script>
+  <script>
+    let originalFile = null;
+    let compressedDataUrl = null;
+
+    // Override handleFileUpload for this page
+    const zone = document.getElementById('upload-zone');
+    const fileInput = zone.querySelector('input[type="file"]');
+
+    function loadFile(file) {
+      originalFile = file;
+      const reader = new FileReader();
+      reader.onload = e => {
+        const img = document.getElementById('preview-orig');
+        img.src = e.target.result;
+        img.style.display = 'block';
+        document.getElementById('ph-orig').style.display = 'none';
+        document.getElementById('orig-size').textContent = formatBytes(file.size);
+        document.getElementById('s-orig').textContent = formatBytes(file.size);
+        zone.querySelector('h3').textContent = file.name;
+        zone.querySelector('p').textContent = formatBytes(file.size) + ' · Ready';
+        zone.style.borderColor = 'var(--teal)';
+      };
+      reader.readAsDataURL(file);
+    }
+
+    fileInput.addEventListener('change', () => { if (fileInput.files[0]) loadFile(fileInput.files[0]); });
+    zone.addEventListener('drop', e => {
+      e.preventDefault();
+      zone.classList.remove('drag-over');
+      if (e.dataTransfer.files[0]) loadFile(e.dataTransfer.files[0]);
+    });
+    zone.addEventListener('dragover', e => { e.preventDefault(); zone.classList.add('drag-over'); });
+    zone.addEventListener('dragleave', () => zone.classList.remove('drag-over'));
+
+    // Quality slider live update
+    const qSlider = document.getElementById('quality');
+    qSlider.addEventListener('input', () => {
+      document.getElementById('quality-val').textContent = qSlider.value;
+    });
+
+    function formatBytes(b) {
+      if (b < 1024) return b + ' B';
+      if (b < 1048576) return (b/1024).toFixed(1) + ' KB';
+      return (b/1048576).toFixed(1) + ' MB';
+    }
+
+    function compressImage() {
+      if (!originalFile) { alert('Please upload an image first.'); return; }
+      const quality = parseInt(qSlider.value) / 100;
+      const origImg = document.getElementById('preview-orig');
+      const canvas = document.createElement('canvas');
+      const img = new Image();
+      img.onload = () => {
+        canvas.width = img.naturalWidth;
+        canvas.height = img.naturalHeight;
+        const ctx = canvas.getContext('2d');
+        ctx.fillStyle = '#ffffff';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(img, 0, 0);
+        const dataUrl = canvas.toDataURL('image/jpeg', quality);
+        compressedDataUrl = dataUrl;
+
+        const compImg = document.getElementById('preview-comp');
+        compImg.src = dataUrl;
+        compImg.style.display = 'block';
+        document.getElementById('ph-comp').style.display = 'none';
+
+        // Estimate size
+        const base64 = dataUrl.split(',')[1];
+        const bytes = Math.round((base64.length * 3) / 4);
+        const savings = Math.round((1 - bytes / originalFile.size) * 100);
+
+        document.getElementById('comp-size').textContent = formatBytes(bytes);
+        document.getElementById('s-comp').textContent = formatBytes(bytes);
+        document.getElementById('s-ratio').textContent = (originalFile.size / bytes).toFixed(1) + 'x';
+        document.getElementById('saving-pct').innerHTML = savings > 0 ? '<i class="fas fa-holly-berry"></i> ' + savings + '% Smaller' : 'No reduction';
+
+        // Download
+        const dl = document.getElementById('download-btn');
+        dl.href = dataUrl;
+        dl.style.display = 'inline-flex';
+      };
+      img.src = origImg.src;
+    }
+
+    function resetTool() {
+      originalFile = null;
+      document.getElementById('preview-orig').style.display = 'none';
+      document.getElementById('preview-comp').style.display = 'none';
+      document.getElementById('ph-orig').style.display = '';
+      document.getElementById('ph-comp').style.display = '';
+      document.getElementById('orig-size').textContent = '—';
+      document.getElementById('comp-size').textContent = '—';
+      document.getElementById('s-orig').textContent = '—';
+      document.getElementById('s-comp').textContent = '—';
+      document.getElementById('s-ratio').textContent = '—';
+      document.getElementById('saving-pct').textContent = 'Upload image to start';
+      document.getElementById('download-btn').style.display = 'none';
+      zone.querySelector('h3').textContent = 'Drop your image here';
+      zone.querySelector('p').textContent = 'or click to browse — JPG, PNG, WebP supported';
+      zone.style.borderColor = '';
+      fileInput.value = '';
+    }
+  </script>
+</body>
+</html>```
