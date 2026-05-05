@@ -4,6 +4,18 @@
 PIXORA Tools is a premium, minimalist suite of image manipulation utilities designed for creators who value speed and data sovereignty. Unlike traditional tools, PIXORA processes everything locally in your browser—meaning your images never touch a server.
 
 [Explore the Tools](https://frankstack1.github.io/PIXORA-Tools/)
+👨‍💻 Developed By
+Frank Nwafor (FRANKSTACK)
+
+Full-Stack Web Developer & Creative Designer
+
+If you like this project or want to collaborate on premium web applications, feel free to reach out:
+
+[Portfolio](https://frankstack.com.ng)
+
+[Linkedin](https://www.linkedin.com/in/frank-nwafor-frankstack-496782332?utm_source=share_via&utm_content=profile&utm_medium=member_android) 
+
+[Twitter/X](https://x.com/FRANKSTACK_1)
 
 ---
 
@@ -37,15 +49,4 @@ PIXORA operates on a **Local-Loop Architecture**:
 ├── index.html          # Landing page
 └── tools.html          # Main application dashboard
 
-👨‍💻 Developed By
-Frank Nwafor (FRANKSTACK)
 
-Full-Stack Web Developer & Creative Designer
-
-If you like this project or want to collaborate on premium web applications, feel free to reach out:
-
-[Portfolio](https://frankstack.com.ng)
-
-[Linkedin](https://www.linkedin.com/in/frank-nwafor-frankstack-496782332?utm_source=share_via&utm_content=profile&utm_medium=member_android) 
-
-[Twitter/X](https://x.com/FRANKSTACK_1)
